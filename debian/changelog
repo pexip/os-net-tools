@@ -1,3 +1,9 @@
+net-tools (1.60-24.1ubuntu2pexip1) pexip; urgency=low
+
+  * Prepare Pexip packaging
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 24 Dec 2013 23:55:05 +0000
+
 net-tools (1.60-24.1ubuntu2) precise; urgency=low
 
   * Build-depend on gettext:any, since we only need it to run tools at

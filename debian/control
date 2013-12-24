@@ -2,11 +2,13 @@ Source: net-tools
 Section: net
 Priority: important
 Build-Depends: debhelper (>> 5), gettext:any, quilt
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: net-tools Team <pkg-net-tools-maintainers@lists.alioth.debian.org>
-Uploaders: Luk Claes <luk@debian.org>, Martín Ferrari <tincho@debian.org>
+XSBC-Pexip-Original-Uploaders: Luk Claes <luk@debian.org>, Martín Ferrari <tincho@debian.org>
 Standards-Version: 3.8.1
 Homepage: http://net-tools.berlios.de/
+XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
 
 Package: net-tools
 Architecture: any

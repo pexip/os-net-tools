@@ -1,3 +1,4 @@
+Bug#632660-netstat.c-long_udp6_addr.patch
 CVS-20020730-route.c_opts_64.patch
 CVS-20030911-nameif.c_sync.patch
 CVS-20031011-hostname.c_sync.patch
@@ -20,6 +21,10 @@ translations.patch
 lib_local_changes.patch
 local-manpages.patch
 Bug#345331-socket_overflow.patch
-Ubuntu_unit_conversion.patch
 Bug#569509-iface_overflow.patch
 Add_missing_headers.patch
+proper-uts-check.patch
+fix-fprintf.patch
+Bug#747006-inet6_sr.c-buffer-overflows.patch
+Bug#561161-statistics.c-long_numbers.patch
+Bug#508110-inet6.c-initialize_fields.patch

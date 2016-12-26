@@ -1,0 +1,19 @@
+net-tools (1.60+git20161116.90da8a0-1) unstable; urgency=medium
+
+  After 15 years without upstream development, net-tools is being worked on
+  again, fixing many long-standing issues.
+
+  The bad news is that the output of many commands has changed, and it is sure
+  to break scripts that relied on parsing it.
+  
+  If you have customs scripts that use any of these commands, please make sure
+  they still work after this upgrade:
+
+    netstat, ifconfig, ipmaddr, iptunnel, mii-tool, nameif, plipconfig, rarp,
+    route, slattach, arp.
+
+  Apologies in advance for the trouble that this may cause, but maintaining a
+  separate version of net-tools just to keep the old format is something I am
+  not able to do.
+
+ -- Martín Ferrari <tincho@debian.org>  Mon, 26 Dec 2016 05:29:25 +0000

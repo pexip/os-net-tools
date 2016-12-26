@@ -1,3 +1,73 @@
+net-tools (1.60+git20161116.90da8a0-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+  * Re-synced translations.patch.
+  * Acknowledge NMUs. Thanks a lot to Andrey Rahmatullin for the
+    fixes and uploads. Closes: 846509.
+  * Fix FTCBFS, thanks to Helmut Grohne for the patch. Closes: #811561.
+    + Really assign CC for cross compilation.
+    + Use triplet prefixed pkg-config.
+  * Add debian/NEWS warning about changing output in net-tools commands.
+    Closing bugs that reported problems in 3rd-party scripts arising from these
+    changes.  Closes: #845153, #843892, #820212.
+  * Update Standards-Version, with no changes.
+
+ -- Martín Ferrari <tincho@debian.org>  Mon, 26 Dec 2016 05:58:42 +0000
+
+net-tools (1.60+git20150829.73cef8a-2.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Apply an additional fix for the previous FTBFS for some architectures.
+
+ -- Andrey Rahmatullin <wrar@debian.org>  Thu, 01 Dec 2016 22:49:27 +0500
+
+net-tools (1.60+git20150829.73cef8a-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix FTBFS by applying the upstream patch (Closes: #844073).
+
+ -- Andrey Rahmatullin <wrar@debian.org>  Sun, 20 Nov 2016 15:23:12 +0500
+
+net-tools (1.60+git20150829.73cef8a-2) unstable; urgency=medium
+
+  [ Laurent Bigonville ]
+  * Enable SELinux support. Closes: #666204.
+
+  [ Martín Ferrari ]
+  * Mark the package "Multi-Arch: foreign", thanks to Frédéric Brière
+    <fbriere@fbriere.net>. Closes: #752584.
+  * Fix bug in Portuguese man page, thanks to julianofischer@gmail.com.
+    Closes: #805377.
+
+ -- Martín Ferrari <tincho@debian.org>  Thu, 19 Nov 2015 14:48:47 +0000
+
+net-tools (1.60+git20150829.73cef8a-1) unstable; urgency=medium
+
+  * After 14 years without an upstream release, I am producing a new package
+    based on today's upstream repository.
+    Closes: #391495, #486448, #323261, #260587, #545328, #511395.
+  * Remove many patches now merged upstream, delete unmaintainable and
+    undocumented local changes, and update the rest.
+
+ -- Martín Ferrari <tincho@debian.org>  Mon, 07 Sep 2015 01:54:07 +0000
+
+net-tools (1.60-27) unstable; urgency=medium
+
+  * Add patch to accept "pointtopoint" as a synonym for "pointopoint".
+    Closes: #443075.
+  * Add patch to add an example for single route deletion in route.8.
+    Closes: #500913.
+  * Remove Luk from Uploaders as per his request. Closes: #748491.
+  * Fix broken watchfile, thanks to Martin Bagge for the patch.
+    Fix upstream homepage. Closes: #770070.
+  * Add patch to make mii-tool scan all ethernet devices instead of eth[0-7].
+    Closes: #532879, #319508.
+  * Add Vcs fields.
+  * Update build system to debhelper 9 and 3.0 source format.
+  * Update ancient Standards-Version, no changes needed.
+
+ -- Martín Ferrari <tincho@debian.org>  Sun, 06 Sep 2015 17:44:11 +0300
+
 net-tools (1.60-26) unstable; urgency=low
 
   * Fix wrong exit codes in netstat.c, closes: #541172.

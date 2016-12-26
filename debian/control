@@ -1,14 +1,17 @@
 Source: net-tools
 Section: net
 Priority: important
-Build-Depends: debhelper (>> 5), gettext, quilt
+Build-Depends: debhelper (>> 9), gettext, libdnet-dev, libselinux1-dev
 Maintainer: net-tools Team <pkg-net-tools-maintainers@lists.alioth.debian.org>
-Uploaders: Luk Claes <luk@debian.org>, Martín Ferrari <tincho@debian.org>
-Standards-Version: 3.8.1
-Homepage: http://net-tools.berlios.de/
+Uploaders: Martín Ferrari <tincho@debian.org>
+Standards-Version: 3.9.8
+Homepage: http://sourceforge.net/projects/net-tools/
+Vcs-Git: https://anonscm.debian.org/git/pkg-net-tools/pkg-net-tools.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-net-tools/pkg-net-tools.git
 
 Package: net-tools
 Architecture: any
+Multi-Arch: foreign
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Replaces: netbase (<< 4.00), ja-trans (<= 0.8-2)
 Conflicts: ja-trans (<= 0.8-2)

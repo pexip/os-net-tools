@@ -1,10 +1,9 @@
 Source: net-tools
 Section: net
 Priority: important
-Build-Depends: debhelper (>> 5), gettext:any, quilt
+Build-Depends: debhelper (>> 5), gettext, quilt
 Maintainer: Pexip AS <packaging@pexip.com>
-XSBC-Pexip-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-XSBC-Original-Maintainer: net-tools Team <pkg-net-tools-maintainers@lists.alioth.debian.org>
+XSBC-Pexip-Original-Maintainer: net-tools Team <pkg-net-tools-maintainers@lists.alioth.debian.org>
 XSBC-Pexip-Original-Uploaders: Luk Claes <luk@debian.org>, Martín Ferrari <tincho@debian.org>
 Standards-Version: 3.8.1
 Homepage: http://net-tools.berlios.de/
@@ -12,10 +11,10 @@ XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
 
 Package: net-tools
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Replaces: netbase (<< 4.00), ja-trans (<= 0.8-2)
 Conflicts: ja-trans (<= 0.8-2)
-Description: The NET-3 networking toolkit
+Description: NET-3 networking toolkit
  This package includes the important tools for controlling the network
  subsystem of the Linux kernel.  This includes arp, ifconfig, netstat, 
  rarp, nameif and route.  Additionally, this package contains utilities

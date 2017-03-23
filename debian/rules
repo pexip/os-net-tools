@@ -19,6 +19,9 @@ else
 CROSS=
 endif
 
+COPTS := -D_GNU_SOURCE -Wall $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+LOPTS := $(shell dpkg-buildflags --get LDFLAGS)
+
 configure: configure-stamp
 configure-stamp: $(QUILT_STAMPFN)
 	[ ! -f config.make ] || mv config.make debian/config.make.bk
@@ -28,10 +31,12 @@ configure-stamp: $(QUILT_STAMPFN)
 	dh_testdir
 	touch $@
 
-build: build-stamp
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
 build-stamp: configure-stamp
 	dh_testdir
-	$(MAKE) $(CROSS) PROGS="ifconfig arp netstat route rarp slattach plipconfig \
+	$(MAKE) $(CROSS) COPTS="$(COPTS)" LOPTS="$(LOPTS)" PROGS="ifconfig arp netstat route rarp slattach plipconfig \
 		nameif iptunnel ipmaddr mii-tool"
 	touch $@
 

@@ -1,3 +1,9 @@
+net-tools (1.60-26+b1pexip1) pexip; urgency=low
+
+  * Bump version
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 09 May 2017 21:06:41 +0100
+
 net-tools (1.60-26pexip1) pexip; urgency=low
 
   * Migrate to Jessie

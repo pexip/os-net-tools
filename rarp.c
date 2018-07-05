@@ -3,7 +3,7 @@
  *              that maintains the kernel's RARP cache.  It is derived
  *              from Fred N. van Kempen's arp command.
  *
- * Version:	$Id: rarp.c,v 1.6 2001/04/08 17:05:05 pb Exp $
+ * Version:	$Id: rarp.c,v 1.9 2007/12/02 02:19:52 ecki Exp $
  *
  * Usage:       rarp -d hostname                      Delete entry
  *              rarp -s hostname ethernet_address     Add entry
@@ -40,12 +40,13 @@
 #include "net-support.h"
 #include "version.h"
 #include "pathnames.h"
+#include "proc.h"
 
 static char no_rarp_message[] = N_("This kernel does not support RARP.\n");
 
-static char version_string[] = RELEASE "\nrarp 1.03 (2001-04-04)\n";
+static char *Release = RELEASE;
 
-static struct hwtype *hardware = NULL;
+static const struct hwtype *hardware = NULL;
 
 /* Delete an entry from the RARP cache. */
 static int rarp_delete(int fd, struct hostent *hp)
@@ -90,9 +91,10 @@ static int rarp_set(int fd, struct hostent *hp, char *hw_addr)
 {
     struct arpreq req;
     struct sockaddr_in *si;
-    struct sockaddr sap;
+    struct sockaddr_storage sas;
+    struct sockaddr *sap = (struct sockaddr *)&sas;
 
-    if (hardware->input(hw_addr, &sap)) {
+    if (hardware->input(hw_addr, &sas)) {
 	fprintf(stderr, _("%s: bad hardware address\n"), hw_addr);
 	return 1;
     }
@@ -102,7 +104,7 @@ static int rarp_set(int fd, struct hostent *hp, char *hw_addr)
     si->sin_family = hp->h_addrtype;
     memcpy((char *) &si->sin_addr, hp->h_addr_list[0], hp->h_length);
     req.arp_ha.sa_family = hardware->type;
-    memcpy(req.arp_ha.sa_data, sap.sa_data, hardware->alen);
+    memcpy(req.arp_ha.sa_data, sap->sa_data, hardware->alen);
 
     /* Call the kernel. */
     if (ioctl(fd, SIOCSRARP, &req) < 0) {
@@ -154,7 +156,7 @@ static int rarp_file(int fd, const char *name)
 
 static int display_cache(void)
 {
-    FILE *fd = fopen(_PATH_PROCNET_RARP, "r");
+    FILE *fd = proc_fopen(_PATH_PROCNET_RARP);
     char buffer[256];
     if (fd == NULL) {
 	if (errno == ENOENT)
@@ -225,7 +227,7 @@ int main(int argc, char **argv)
 	case 'h':
 	    usage();
 	case 'V':
-	    fprintf(stderr, version_string);
+	    fprintf(stderr, "%s\n", Release);
 	    exit(E_VERSION);
 	    break;
 	case 'v':

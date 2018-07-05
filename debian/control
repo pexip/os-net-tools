@@ -7,7 +7,7 @@ XSBC-Pexip-Original-Maintainer: net-tools Team <pkg-net-tools-maintainers@lists.
 XSBC-Pexip-Original-Uploaders: Luk Claes <luk@debian.org>, Martín Ferrari <tincho@debian.org>
 Standards-Version: 3.8.1
 Homepage: http://net-tools.berlios.de/
-XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ stretch
 
 Package: net-tools
 Architecture: any

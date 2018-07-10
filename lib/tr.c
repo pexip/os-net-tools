@@ -2,7 +2,7 @@
  * lib/tr.c   This file contains an implementation of the "Tokenring"
  *              support functions.
  *
- * Version:     $Id: tr.c,v 1.8 2000/02/02 08:56:30 freitag Exp $
+ * Version:     $Id: tr.c,v 1.9 2005/05/16 03:15:12 ecki Exp $
  *
  * Author:      Fred N. van Kempen, <waltje@uwalt.nl.mugnet.org>
  *              Copyright 1993 MicroWalt Corporation
@@ -30,10 +30,16 @@
 #include "net-support.h"
 #include "pathnames.h"
 #include "intl.h"
+#include "util.h"
 
+
+/* actual definition at the end of file */
 extern struct hwtype tr_hwtype;
+#ifdef ARPHRD_IEEE802_TR
+extern struct hwtype tr_hwtype1;
+#endif
 
-static char *pr_tr(unsigned char *ptr)
+static const char *pr_tr(const char *ptr)
 {
     static char buff[64];
 
@@ -42,16 +48,32 @@ static char *pr_tr(unsigned char *ptr)
 	     (ptr[3] & 0377), (ptr[4] & 0377), (ptr[5] & 0377)
 	);
     return (buff);
-}
+      }
 
+#ifdef DEBUG
+#define _DEBUG 1
+#else
+#define _DEBUG 0
+#endif
 
-static int in_tr(char *bufp, struct sockaddr *sap)
+static int in_tr(char *bufp, struct sockaddr_storage *sasp)
 {
-    unsigned char *ptr;
+    struct sockaddr *sap = (struct sockaddr *)sasp;
+    char *ptr;
     char c, *orig;
     int i, val;
 
+#ifdef ARPHRD_IEEE802_TR
+    if (kernel_version() < KRELEASE(2,3,30)) {
+        sap->sa_family = tr_hwtype.type;
+    } else {
+        sap->sa_family = tr_hwtype1.type;
+    }
+#else
     sap->sa_family = tr_hwtype.type;
+    #warning "Limited functionality, no support for ARPHRD_IEEE802_TR (old kernel headers?)"
+#endif
+
     ptr = sap->sa_data;
 
     i = 0;
@@ -66,9 +88,8 @@ static int in_tr(char *bufp, struct sockaddr *sap)
 	else if (c >= 'A' && c <= 'F')
 	    val = c - 'A' + 10;
 	else {
-#ifdef DEBUG
-	    fprintf(stderr, _("in_tr(%s): invalid token ring address!\n"), orig);
-#endif
+	    if (_DEBUG)
+		fprintf(stderr, _("in_tr(%s): invalid token ring address!\n"), orig);
 	    errno = EINVAL;
 	    return (-1);
 	}
@@ -81,9 +102,8 @@ static int in_tr(char *bufp, struct sockaddr *sap)
 	else if (c >= 'A' && c <= 'F')
 	    val |= c - 'A' + 10;
 	else {
-#ifdef DEBUG
-	    fprintf(stderr, _("in_tr(%s): invalid token ring address!\n"), orig);
-#endif
+	    if (_DEBUG)
+		fprintf(stderr, _("in_tr(%s): invalid token ring address!\n"), orig);
 	    errno = EINVAL;
 	    return (-1);
 	}
@@ -92,28 +112,21 @@ static int in_tr(char *bufp, struct sockaddr *sap)
 
 	/* We might get a semicolon here - not required. */
 	if (*bufp == ':') {
-	    if (i == TR_ALEN) {
-#ifdef DEBUG
+	    if (_DEBUG && i == TR_ALEN)
 		fprintf(stderr, _("in_tr(%s): trailing : ignored!\n"),
-			orig)
-#endif
-		    ;		/* nothing */
-	    }
+			orig);
 	    bufp++;
 	}
     }
 
     /* That's it.  Any trailing junk? */
-    if ((i == TR_ALEN) && (*bufp != '\0')) {
-#ifdef DEBUG
+    if (_DEBUG && (i == TR_ALEN) && (*bufp != '\0')) {
 	fprintf(stderr, _("in_tr(%s): trailing junk!\n"), orig);
 	errno = EINVAL;
 	return (-1);
-#endif
     }
-#ifdef DEBUG
-    fprintf(stderr, "in_tr(%s): %s\n", orig, pr_tr(sap->sa_data));
-#endif
+    if (_DEBUG)
+	fprintf(stderr, "in_tr(%s): %s\n", orig, pr_tr(sap->sa_data));
 
     return (0);
 }

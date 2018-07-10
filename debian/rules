@@ -1,65 +1,51 @@
 #!/usr/bin/make -f
 
-include /usr/share/quilt/quilt.make
-
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-
-# This has to be exported to make some magic below work.
-export DH_OPTIONS
 
 # These are used for cross-compiling and for saving the configure script
 # from having to guess our platform (since we know it already)
 DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 
+ifeq ($(origin CC),default)
+    CC := $(DEB_HOST_GNU_TYPE)-gcc
+endif
 ifneq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
-CROSS=CC=$(DEB_HOST_GNU_TYPE)-gcc
-else
-CROSS=
+    PKG_CONFIG ?= $(DEB_HOST_GNU_TYPE)-pkg-config
+    export PKG_CONFIG
 endif
 
-COPTS := -D_GNU_SOURCE -Wall $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+COPTS := -D_GNU_SOURCE -Wall $(shell dpkg-buildflags --get CFLAGS) \
+    $(shell dpkg-buildflags --get CPPFLAGS)
 LOPTS := $(shell dpkg-buildflags --get LDFLAGS)
 
-configure: configure-stamp
-configure-stamp: $(QUILT_STAMPFN)
+PROGS    = ifconfig arp netstat route rarp slattach plipconfig \
+    nameif iptunnel ipmaddr mii-tool
+MANPAGES = arp.8 ethers.5 ifconfig.8 mii-tool.8 nameif.8 netstat.8 \
+	   plipconfig.8 rarp.8 route.8 slattach.8
+
+%:
+	dh $@
+
+override_dh_auto_configure:
 	[ ! -f config.make ] || mv config.make debian/config.make.bk
 	cp -f debian/config.make config.make
 	[ ! -f config.h ] || mv config.h debian/config.h.bk
 	cp -f debian/config.h config.h
-	dh_testdir
-	touch $@
 
-build: build-arch build-indep
-build-arch: build-stamp
-build-indep: build-stamp
-build-stamp: configure-stamp
-	dh_testdir
-	$(MAKE) $(CROSS) COPTS="$(COPTS)" LOPTS="$(LOPTS)" PROGS="ifconfig arp netstat route rarp slattach plipconfig \
-		nameif iptunnel ipmaddr mii-tool"
-	touch $@
+override_dh_auto_build:
+	$(MAKE) CC="$(CC)" COPTS="$(COPTS)" LOPTS="$(LOPTS)" PROGS="$(PROGS)"
 
-clean: unpatch
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp configure-stamp
+override_dh_auto_clean:
 	[ ! -f Makefile ] || $(MAKE) clobber
 	[ ! -f debian/config.h.bk ] || \
 		mv debian/config.h.bk config.h
 	[ ! -f debian/config.make.bk ] || \
 		mv debian/config.make.bk config.make
-	dh_clean
+	dh_auto_clean
 
-MANPAGES = arp.8 ethers.5 ifconfig.8 mii-tool.8 nameif.8 netstat.8 \
-	   plipconfig.8 rarp.8 route.8 slattach.8
-
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-	dh_installdirs bin sbin usr/sbin
-	dh_install
+override_dh_auto_install:
 	$(MAKE) -C po install BASEDIR=$(CURDIR)/debian/net-tools
 	dh_installman --language=de \
 		$(wildcard $(addprefix man/de_DE/,$(MANPAGES)))
@@ -70,23 +56,14 @@ install: build
 	dh_installman --language=pt_BR \
 		$(wildcard $(addprefix man/pt_BR/,$(MANPAGES)))
 
-binary-indep: build install
+DEBVERS    ?= $(shell dpkg-parsechangelog | sed -n -e 's/^Version: //p')
+VERSION    ?= $(shell echo '$(DEBVERS)' | sed 's/^[[:digit:]]*://; s/[-].*//')
+DEBPKGNAME ?= $(shell dpkg-parsechangelog | sed -n -e 's/^Source: //p')
+GITCOMMIT  ?= $(shell echo '$(VERSION)' | \
+              sed -e 's/.*+git[[:digit:]]*\.\([[:xdigit:]]*\).*/\1/')
 
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs
-	dh_installdocs README README.ipv6 TODO
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-arch binary-indep
-.PHONY: build clean binary-indep binary-arch binary install install-indep \
-	install-arch
+gen-orig-tgz:
+	if [ ! -f ../$(DEBPKGNAME)_$(VERSION).orig.tar.gz ] ; then \
+	    git archive --format=tar.gz --prefix=$(DEBPKGNAME)-$(VERSION)/ \
+                $(GITCOMMIT) >../$(DEBPKGNAME)_$(VERSION).orig.tar.gz ; \
+	fi

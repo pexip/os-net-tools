@@ -1,3 +1,4 @@
 version=3
 
-http://download.berlios.de/net-tools/net-tools-(\d.*)\.tar\.(?:bz2|gz)
+https://qa.debian.org/watch/sf.php/net-tools/ \
+    net-tools-(\d+\.\d+(?:\.\d+)?)\.(?:tgz|tbz2|txz|tar\.(?:gz|bz2|xz))

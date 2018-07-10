@@ -73,3 +73,4 @@
 #define HAVE_FW_MASQUERADE 1
 #define HAVE_IP_TOOLS 1
 #define HAVE_MII 1
+#define HAVE_SELINUX 1

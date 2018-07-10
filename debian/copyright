@@ -1,7 +1,7 @@
 Format-Specification: http://wiki.debian.org/Proposals/CopyrightFormat?action=recall&rev=437
 Upstream-Maintainer: Phil Blundell <philb@gnu.org>, 
                      Bernd Eckenfels <net-tools@lina.inka.de>
-Upstream-Source: https://developer.berlios.de/projects/net-tools/
+Upstream-Source: http://sourceforge.net/projects/net-tools/
 
 Files: *
 Copyright: © 1988-1994 MicroWalt Corporation

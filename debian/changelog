@@ -1,3 +1,9 @@
+net-tools (1.60+git20161116.90da8a0-1pexip1) pexip; urgency=medium
+
+  * Migrate to Stretch
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 10 Jul 2018 11:33:33 +0000
+
 net-tools (1.60+git20161116.90da8a0-1) unstable; urgency=medium
 
   * New upstream snapshot.

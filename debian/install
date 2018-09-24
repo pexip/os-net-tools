@@ -1,11 +1,11 @@
 arp		/usr/sbin
 ifconfig	/sbin
+ipmaddr		/sbin
+iptunnel	/sbin
+mii-tool	/sbin
 nameif		/sbin
+netstat		/bin
 plipconfig	/sbin
 rarp		/sbin
 route		/sbin
 slattach	/sbin
-ipmaddr		/sbin
-iptunnel	/sbin
-mii-tool	/sbin
-netstat		/bin

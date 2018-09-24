@@ -1,3 +1,4 @@
+Description: Bug#805377: fix man/pt_BR/ifconfig.8
 --- a/man/pt_BR/ifconfig.8
 +++ b/man/pt_BR/ifconfig.8
 @@ -63,7 +63,7 @@

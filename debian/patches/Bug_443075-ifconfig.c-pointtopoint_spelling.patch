@@ -1,10 +1,9 @@
 Description: Accept "pointtopoint" as a synonym for "pointopoint"
+Bug-Debian: https://bugs.debian.org/443075
 Author: Justin Pryzby <pryzbyj@libra>
-Bug-Debian: http://bugs.debian.org/443075
-
 --- a/ifconfig.c
 +++ b/ifconfig.c
-@@ -643,14 +643,14 @@
+@@ -644,14 +644,14 @@
  	    spp++;
  	    continue;
  	}

@@ -1,0 +1,72 @@
+--- a/man/de_DE/netstat.8
++++ b/man/de_DE/netstat.8
+@@ -210,7 +210,7 @@
+ bei Verwendung der
+ .B -n
+ Option wird die Socketadresse nach dem kanonischen Rechnernamen und die
+-Portnummer in den zugeh\(:origen Dienstenamen aufgel\(sst.
++Portnummer in den zugeh\(:origen Dienstenamen aufgel\(:o\(sst.
+ 
+ .SS "Gegenadresse"
+ Die Adresse und Portnummer der Gegenseite des Sockets.  Wie bei lokalen
+@@ -237,12 +237,12 @@
+ .TP
+ .I
+ FIN_WAIT1
+-Der Socket wurde geschlo\(ssen und die Verbindung wird beendet.
++Der Socket wurde geschlossen und die Verbindung wird beendet.
+ .TP
+ .I
+ FIN_WAIT2
+-Die Verbindung ist geschl\(ssen und der Socket wartet darauf, da\(ss sie
+-von der Gegenseite ebenfalls geschlo\(ssen wird.
++Die Verbindung ist geschlossen und der Socket wartet darauf, dass sie
++von der Gegenseite ebenfalls geschlossen wird.
+ .TP
+ .I
+ TIME_WAIT
+@@ -260,7 +260,7 @@
+ .TP
+ .I
+ LAST_ACK
+-Die Gegenseite hat die Verbindung beendet und der Socket ist geschlo\(ssen;
++Die Gegenseite hat die Verbindung beendet und der Socket ist geschlossen;
+ die Best\(:atigung wird abgewartet.
+ .TP
+ .I
+@@ -274,7 +274,7 @@
+ .TP
+ .I
+ CLOSING
+-Beide Sockets sind geschlo\(ssen es wurden aber noch nicht alle Daten
++Beide Sockets sind geschlossen, es wurden aber noch nicht alle Daten
+ geschickt.
+ .TP
+ .I
+@@ -294,7 +294,7 @@
+ Sockets sind diese Daten nicht verf\(:ugbar.
+ 
+ .SS "Timer"
+-(Dies mu\(ss noch geschrieben werden)
++(Dies muss noch geschrieben werden)
+ 
+ .PP
+ .SS Aktive Sockets in der UNIX Dom\(:ane
+@@ -334,7 +334,7 @@
+ .TP
+ .I
+ SOCK_RDM
+-Dieser Socket bedient zuverl\(ssig zugestellte Nachrichten.
++Dieser Socket bedient zuverl\(:assig zugestellte Nachrichten.
+ .TP
+ .I
+ SOCK_SEQPACKET
+@@ -347,7 +347,7 @@
+ .TP
+ .I
+ UNKNOWN
+-Wer wei\(ss, was uns die Zukunft bringt soll es hier hinschreiben :-)
++Wer wei\(ss, was uns die Zukunft bringt, soll es hier hinschreiben :-)
+ 
+ .PP
+ .SS "Zustand"

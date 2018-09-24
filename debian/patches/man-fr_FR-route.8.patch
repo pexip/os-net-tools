@@ -1,0 +1,12 @@
+Description: Fix man/fr_FR/route.8
+--- a/man/fr_FR/route.8
++++ b/man/fr_FR/route.8
+@@ -179,7 +179,7 @@
+ et les spécifications de périphériques). Dans la plupart des réseaux
+ normaux, vous n'aurez pas besoin de ceci.
+ 
+-If 
++Si
+ .B dev If
+ est la dernière option de la ligne de commande, le mot
+ .B dev

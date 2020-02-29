@@ -1,3 +1,9 @@
+net-tools (1.60+git20180626.aebd88e-1pexip1) pexip; urgency=medium
+
+  * Migrate to Buster
+
+ -- Vincent Sanders <vince@pexip.com>  Sat, 29 Feb 2020 18:08:13 +0000
+
 net-tools (1.60+git20180626.aebd88e-1) unstable; urgency=medium
 
   * New upstream snapshot

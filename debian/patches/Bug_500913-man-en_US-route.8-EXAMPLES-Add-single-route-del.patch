@@ -1,7 +1,6 @@
-Author: Jari Aalto <jari.aalto@cante.net>
 Description: man/en_US/route.8: (EXAMPLES): Add single route del
-Bug-Debian: http://bugs.debian.org/500913
- 
+Bug-Debian: https://bugs.debian.org/500913
+Author: Jari Aalto <jari.aalto@cante.net>
 --- a/man/en_US/route.8
 +++ b/man/en_US/route.8
 @@ -205,6 +205,12 @@

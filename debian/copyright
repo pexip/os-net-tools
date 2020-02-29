@@ -1,13 +1,29 @@
-Format-Specification: http://wiki.debian.org/Proposals/CopyrightFormat?action=recall&rev=437
-Upstream-Maintainer: Phil Blundell <philb@gnu.org>, 
-                     Bernd Eckenfels <net-tools@lina.inka.de>
-Upstream-Source: http://sourceforge.net/projects/net-tools/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: net-tools
+Upstream-Contact: Phil Blundell <philb@gnu.org>
+                  Bernd Eckenfels <net-tools@lina.inka.de>
+Source: http://sourceforge.net/projects/net-tools/
 
 Files: *
 Copyright: © 1988-1994 MicroWalt Corporation
-Copyright: © 1995-1996 Bernd Eckenfels
-Copyright: © 1997-2000 Andi Kleen
-Copyright: © 1997-2000 Donald Becker
+ © 1995-1996 Bernd Eckenfels
+ © 1997-2000 Andi Kleen
+ © 1997-2000 Donald Becker
+License: GPL-2+
+
+Files: debian/*
+Copyright: © 2008-2009 Luk Claes, Martín Ferrari
+ © 2000-2007 Bernd Eckenfels
+ © 2000 Anthony Towns
+License: GPL-2+
+Comment:
+ It is assumed that all contributors put their work under the same license
+ as the module itself.
+
+Files: debian/iptunnel.8
+Copyright: © 2018 Sergio Durigan Junior
+License: GPL-2+
+
 License: GPL-2+
  The copyright attribution has been derived from individual files' text, but
  each file may have different copyright holders, and some may be missing. See
@@ -20,12 +36,3 @@ License: GPL-2+
  .
  On Debian GNU/Linux systems, the complete text of the GNU General Public
  License can be found in `/usr/share/common-licenses/GPL-2'
-
-Files: debian/*
-Copyright: © 2008-2009 Luk Claes, Martín Ferrari
-Copyright: © 2000-2007 Bernd Eckenfels
-Copyright: © 2000 Anthony Towns
-License: GPL-2+
- It is assumed that all contributors put their work under the same license
- as the module itself.
-

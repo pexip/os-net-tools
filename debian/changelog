@@ -1,3 +1,9 @@
+net-tools (1.60+git20180626.aebd88e-1pexip2) pexip; urgency=medium
+
+  * Rebuild in buster environment
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Thu, 16 Jul 2020 01:16:50 +0000
+
 net-tools (1.60+git20180626.aebd88e-1pexip1) pexip; urgency=medium
 
   * Migrate to Buster

@@ -1,4 +1,9 @@
-version=3
-
-https://qa.debian.org/watch/sf.php/net-tools/ \
-    net-tools-(\d+\.\d+(?:\.\d+)?)\.(?:tgz|tbz2|txz|tar\.(?:gz|bz2|xz))
+version=4
+opts="\
+  mode=git,\
+  pgpmode=none,\
+  pretty=1.60+git%cd.%h,\
+  date=%Y%m%d,\
+  compression=xz,\
+" https://git.code.sf.net/p/net-tools/code.git \
+  heads/master

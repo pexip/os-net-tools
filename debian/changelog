@@ -1,3 +1,23 @@
+net-tools (1.60+git20181103.0eebece-1) unstable; urgency=medium
+
+  * New upstream version 1.60+git20181103.0eebece
+    - Fix nstrcmp() to prevent ifconfig from showing
+      duplicate interfaces. (Closes: #812886)
+  * Fix d/watch to point to upstream git repository
+  * Add patch to fix decoding of MII vendor ids. (Closes: #549397)
+    - Thanks, Ben Hutchings, for the patch.
+  * Add patch to fix Japanese translation which uses a wrong
+    Kanji character. (Closes: #621752)
+    - Thanks, Takeshi Hamasaki, for the patch.
+  * Add patch to fix wrong indentation of "collisions" in  the
+    Japanese translation. (Closes: #653117)
+    - Thanks, NODA, Kai, for the patch.
+  * Fix Uploaders' field.
+    - Add myself as an uploader.
+    - Fix Tina's details.
+
+ -- Utkarsh Gupta <utkarsh@debian.org>  Fri, 02 Oct 2020 15:01:04 +0530
+
 net-tools (1.60+git20180626.aebd88e-1) unstable; urgency=medium
 
   * New upstream snapshot

@@ -12191,7 +12191,7 @@ Description: Random changed found in diff.gz, synchronized the best I could
 +#: ../statistics.c:92 ../statistics.c:105
 +#, c-format
 +msgid "wrong parameters: %u"
-+msgstr "謝ったパラメータ: %u"
++msgstr "誤ったパラメータ: %u"
 +
 +#. ?
 +#: ../statistics.c:93
@@ -13577,7 +13577,7 @@ Description: Random changed found in diff.gz, synchronized the best I could
 +#: ../lib/interface.c:899
 +#, c-format
 +msgid "          collisions:%lu "
-+msgstr "      衝突(Collisions):%lu "
++msgstr "          衝突:%lu "
 +
 +#: ../lib/interface.c:901
 +#, c-format

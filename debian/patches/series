@@ -6,3 +6,4 @@ Add_missing_headers.patch
 Bug_443075-ifconfig.c-pointtopoint_spelling.patch
 Bug_500913-man-en_US-route.8-EXAMPLES-Add-single-route-del.patch
 Bug_900962-man-de-typos.patch
+Bug_549397-fix-decoding-of-MII-vendor-ids.patch

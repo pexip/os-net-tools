@@ -1,14 +1,15 @@
 Source: net-tools
 Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: net-tools Team <team+net-tools@tracker.debian.org>
-XSBC-Pexip-Original-Uploaders: Martín Ferrari <tincho@debian.org>,
+XSBC-Pexip-Original-Uploaders: Martina Ferrari <tina@debian.org>,
+           Utkarsh Gupta <utkarsh@debian.org>
 Section: net
 Priority: important
-Build-Depends: debhelper (>> 11),
+Build-Depends: debhelper-compat (= 12),
                gettext,
                libdnet-dev,
                libselinux1-dev,
-Standards-Version: 4.2.1
+Standards-Version: 4.5.0
 Vcs-Browser: https://salsa.debian.org/debian/net-tools
 Vcs-Git: https://salsa.debian.org/debian/net-tools.git
 Homepage: http://sourceforge.net/projects/net-tools/

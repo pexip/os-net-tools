@@ -1,14 +1,5 @@
 --- a/man/de_DE/netstat.8
 +++ b/man/de_DE/netstat.8
-@@ -210,7 +210,7 @@
- bei Verwendung der
- .B -n
- Option wird die Socketadresse nach dem kanonischen Rechnernamen und die
--Portnummer in den zugeh\(:origen Dienstenamen aufgel\(sst.
-+Portnummer in den zugeh\(:origen Dienstenamen aufgel\(:o\(sst.
- 
- .SS "Gegenadresse"
- Die Adresse und Portnummer der Gegenseite des Sockets.  Wie bei lokalen
 @@ -237,12 +237,12 @@
  .TP
  .I
@@ -34,25 +25,25 @@
  die Best\(:atigung wird abgewartet.
  .TP
  .I
-@@ -274,7 +274,7 @@
+@@ -272,7 +272,7 @@
  .TP
  .I
  CLOSING
--Beide Sockets sind geschlo\(ssen es wurden aber noch nicht alle Daten
+-Beide Sockets sind geschlo\(ssen, es wurden aber noch nicht alle Daten
 +Beide Sockets sind geschlossen, es wurden aber noch nicht alle Daten
  geschickt.
  .TP
  .I
-@@ -294,7 +294,7 @@
+@@ -292,7 +292,7 @@
  Sockets sind diese Daten nicht verf\(:ugbar.
  
  .SS "Timer"
--(Dies mu\(ss noch geschrieben werden)
-+(Dies muss noch geschrieben werden)
+-(dies mu\(ss noch geschrieben werden)
++(dies muss noch geschrieben werden)
  
  .PP
- .SS Aktive Sockets in der UNIX Dom\(:ane
-@@ -334,7 +334,7 @@
+ .SS aktive Sockets in der UNIX Dom\(:ane
+@@ -332,7 +332,7 @@
  .TP
  .I
  SOCK_RDM
@@ -61,7 +52,7 @@
  .TP
  .I
  SOCK_SEQPACKET
-@@ -347,7 +347,7 @@
+@@ -345,7 +345,7 @@
  .TP
  .I
  UNKNOWN

@@ -1,3 +1,9 @@
+net-tools (1.60+git20181103.0eebece-1pexip1) pexip; urgency=medium
+
+  * Initial bullseye build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Thu, 02 Jun 2022 14:42:36 +0100
+
 net-tools (1.60+git20181103.0eebece-1) unstable; urgency=medium
 
   * New upstream version 1.60+git20181103.0eebece

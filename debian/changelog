@@ -1,3 +1,9 @@
+net-tools (1.60+git20181103.0eebece-1pexip2) pexip-bullseye; urgency=medium
+
+  * Main bullseye build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Fri, 24 Jun 2022 14:03:53 +0100
+
 net-tools (1.60+git20181103.0eebece-1pexip1) pexip; urgency=medium
 
   * Initial bullseye build

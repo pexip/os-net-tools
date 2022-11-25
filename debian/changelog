@@ -1,3 +1,13 @@
+net-tools (2.10-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Update Martina's name and email address.
+  * Drop DECnet support (Closes: #1024730)
+  * Revert "Fix d/watch to point to upstream git repository"
+  * New upstream version 2.10 (Closes: #1000281)
+
+ -- Bastian Germann <bage@debian.org>  Fri, 25 Nov 2022 15:15:20 +0100
+
 net-tools (1.60+git20181103.0eebece-1) unstable; urgency=medium
 
   * New upstream version 1.60+git20181103.0eebece
@@ -25,14 +35,14 @@ net-tools (1.60+git20180626.aebd88e-1) unstable; urgency=medium
   * Fix typos in German manpages. Thanks to Prof. Dr. Steffen Wendzel and
     Dr. Tobias Quathamer for the patch. Closes: #900962.
 
- -- Martín Ferrari <tincho@debian.org>  Mon, 24 Sep 2018 19:08:57 +0000
+ -- Martina Ferrari <tina@debian.org>  Mon, 24 Sep 2018 19:08:57 +0000
 
 net-tools (1.60+git20161116.90da8a0-4) unstable; urgency=medium
 
   * Update maintainer email address. Closes: #899617.
   * Update Standards-Version with no changes.
 
- -- Martín Ferrari <tincho@debian.org>  Mon, 24 Sep 2018 17:16:31 +0000
+ -- Martina Ferrari <tina@debian.org>  Mon, 24 Sep 2018 17:16:31 +0000
 
 net-tools (1.60+git20161116.90da8a0-3) unstable; urgency=medium
 
@@ -40,7 +50,7 @@ net-tools (1.60+git20161116.90da8a0-3) unstable; urgency=medium
   * debian/control: remove references to ancient package ja-trans.
   * debian/gbp.conf: Update repo layout.
 
- -- Martín Ferrari <tincho@debian.org>  Tue, 31 Jul 2018 19:09:00 +0000
+ -- Martina Ferrari <tina@debian.org>  Tue, 31 Jul 2018 19:09:00 +0000
 
 net-tools (1.60+git20161116.90da8a0-2) unstable; urgency=medium
 
@@ -51,7 +61,7 @@ net-tools (1.60+git20161116.90da8a0-2) unstable; urgency=medium
   * Automated cme fixes; packaging improvements.
   * Remove unused and ancient patch.
 
- -- Martín Ferrari <tincho@debian.org>  Sun, 11 Feb 2018 17:29:24 +0000
+ -- Martina Ferrari <tina@debian.org>  Sun, 11 Feb 2018 17:29:24 +0000
 
 net-tools (1.60+git20161116.90da8a0-1) unstable; urgency=medium
 
@@ -67,7 +77,7 @@ net-tools (1.60+git20161116.90da8a0-1) unstable; urgency=medium
     changes.  Closes: #845153, #843892, #820212.
   * Update Standards-Version, with no changes.
 
- -- Martín Ferrari <tincho@debian.org>  Mon, 26 Dec 2016 05:58:42 +0000
+ -- Martina Ferrari <tina@debian.org>  Mon, 26 Dec 2016 05:58:42 +0000
 
 net-tools (1.60+git20150829.73cef8a-2.2) unstable; urgency=medium
 
@@ -88,13 +98,13 @@ net-tools (1.60+git20150829.73cef8a-2) unstable; urgency=medium
   [ Laurent Bigonville ]
   * Enable SELinux support. Closes: #666204.
 
-  [ Martín Ferrari ]
+  [ Martina Ferrari ]
   * Mark the package "Multi-Arch: foreign", thanks to Frédéric Brière
     <fbriere@fbriere.net>. Closes: #752584.
   * Fix bug in Portuguese man page, thanks to julianofischer@gmail.com.
     Closes: #805377.
 
- -- Martín Ferrari <tincho@debian.org>  Thu, 19 Nov 2015 14:48:47 +0000
+ -- Martina Ferrari <tina@debian.org>  Thu, 19 Nov 2015 14:48:47 +0000
 
 net-tools (1.60+git20150829.73cef8a-1) unstable; urgency=medium
 
@@ -104,7 +114,7 @@ net-tools (1.60+git20150829.73cef8a-1) unstable; urgency=medium
   * Remove many patches now merged upstream, delete unmaintainable and
     undocumented local changes, and update the rest.
 
- -- Martín Ferrari <tincho@debian.org>  Mon, 07 Sep 2015 01:54:07 +0000
+ -- Martina Ferrari <tina@debian.org>  Mon, 07 Sep 2015 01:54:07 +0000
 
 net-tools (1.60-27) unstable; urgency=medium
 
@@ -121,7 +131,7 @@ net-tools (1.60-27) unstable; urgency=medium
   * Update build system to debhelper 9 and 3.0 source format.
   * Update ancient Standards-Version, no changes needed.
 
- -- Martín Ferrari <tincho@debian.org>  Sun, 06 Sep 2015 17:44:11 +0300
+ -- Martina Ferrari <tina@debian.org>  Sun, 06 Sep 2015 17:44:11 +0300
 
 net-tools (1.60-26) unstable; urgency=low
 
@@ -136,7 +146,7 @@ net-tools (1.60-26) unstable; urgency=low
   * debian/control: Add ${misc:Depends}, remove 'the' from description.
   * debian/rules: Add missing build-arch and build-indep targets.
 
- -- Martín Ferrari <tincho@debian.org>  Mon, 12 May 2014 05:12:20 +0000
+ -- Martina Ferrari <tina@debian.org>  Mon, 12 May 2014 05:12:20 +0000
 
 net-tools (1.60-25) unstable; urgency=medium
 
@@ -213,7 +223,7 @@ net-tools (1.60-23) unstable; urgency=low
   * debian/patches/Bug#345331-socket_overflow.patch: patch from Antonio Galea
     that solves an issue when the socket number exceeds 2^31. Closes: #345331.
 
- -- Martín Ferrari <tincho@debian.org>  Mon, 16 Mar 2009 01:58:18 -0300
+ -- Martina Ferrari <tina@debian.org>  Mon, 16 Mar 2009 01:58:18 -0300
 
 net-tools (1.60-22) unstable; urgency=low
 

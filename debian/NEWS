@@ -16,4 +16,4 @@ net-tools (1.60+git20161116.90da8a0-1) unstable; urgency=medium
   separate version of net-tools just to keep the old format is something I am
   not able to do.
 
- -- Martín Ferrari <tincho@debian.org>  Mon, 26 Dec 2016 05:29:25 +0000
+ -- Martina Ferrari <tina@debian.org>  Mon, 26 Dec 2016 05:29:25 +0000

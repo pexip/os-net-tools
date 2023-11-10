@@ -673,6 +673,7 @@ static void igmp_do_one(int lnr, const char *line,const char *prot)
     static int igmp6_flag = 0;
     static char device[16];
     int num, idx, refcnt;
+    char* offset;
 
     if (lnr == 0) {
 	/* IPV6 ONLY */
@@ -724,17 +725,21 @@ static void igmp_do_one(int lnr, const char *line,const char *prot)
 #if HAVE_AFINET
 	if (line[0] != '\t') {
 	    if (idx_flag) {
-		if ((num = sscanf( line, "%d\t%10c", &idx, device)) < 2) {
+		if ((num = sscanf(line, "%d\t%15c", &idx, device)) < 2) {
 		    fprintf(stderr, _("warning, got bogus igmp line %d.\n"), lnr);
 		    return;
 		}
 	    } else {
-		if ( (num = sscanf( line, "%10c", device )) < 1 ) {
+		if ((num = sscanf(line, "%15c", device)) < 1 ) {
 		    fprintf(stderr, _("warning, got bogus igmp line %d.\n"), lnr);
 		    return;
 		}
 	    }
-	    device[10] = '\0';
+
+	    offset = strrchr(device, ':');
+	    if (offset)
+		*offset = 0;
+
 	    return;
 	} else if ( line[0] == '\t' ) {
 	    if ( (num = sscanf(line, "\t%8[0-9A-Fa-f] %d", mcast_addr, &refcnt)) < 2 ) {
@@ -1069,8 +1074,19 @@ static int sctp_info_assocs(void)
 
 static int sctp_info(void)
 {
-  int res = sctp_info_eps();
-  return res ? res : sctp_info_assocs();
+    int res;
+
+    if (flag_all || flag_lst) {
+	res = sctp_info_eps();
+	if (res)
+	    return res;
+    }
+
+    if (flag_all || !flag_lst) {
+	res = sctp_info_assocs();
+    }
+
+    return res;
 }
 
 static void addr_do_one(char *buf, size_t buf_len, size_t short_len, const struct aftype *ap,
@@ -1935,7 +1951,7 @@ static int iface_info(void)
     }
     if (flag_exp < 2) {
 	ife_short = 1;
-	printf(_("Iface      MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg\n"));
+	printf(_("Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg\n"));
     }
 
     if (for_all_interfaces(do_if_print, &flag_all) < 0) {
@@ -2237,12 +2253,14 @@ int main
             parsesnmp(flag_raw, flag_tcp, flag_udp, flag_sctp);
 #else
             ENOSUPP("netstat", "AF INET");
+            exit(1);
 #endif
         } else if(!strcmp(afname, "inet6")) {
 #if HAVE_AFINET6
             parsesnmp6(flag_raw, flag_tcp, flag_udp);
 #else
             ENOSUPP("netstat", "AF INET6");
+            exit(1);
 #endif
         } else {
           printf(_("netstat: No statistics support for specified address family: %s\n"), afname);

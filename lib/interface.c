@@ -109,7 +109,7 @@ static struct interface *if_cache_add(const char *name)
 	    if (n < 0)
 		    break;
     }
-    new(new);
+    new = xmalloc(sizeof(*new));
     safe_strncpy(new->name, name, IFNAMSIZ);
     nextp = ife ? &ife->next : &int_list; // keep sorting
     new->prev = ife;
@@ -594,7 +594,7 @@ int do_if_print(struct interface *ife, void *cookie)
 
 void ife_print_short(struct interface *ptr)
 {
-    printf("%-8.8s ", ptr->name);
+    printf("%-15.15s ", ptr->name);
     printf("%5d ", ptr->mtu);
     /* If needed, display the interface statistics. */
     if (ptr->statistics_valid) {
@@ -866,10 +866,10 @@ void ife_print_long(struct interface *ptr)
 	 */
 	rx = ptr->stats.rx_bytes;
 	short_rx = rx * 10;
-	if (rx > 1125899906842624ull) {
-	    if (rx > (9223372036854775807ull / 10))
-		short_rx = rx / 112589990684262ull;
-	    else
+	if (rx > 1152921504606846976ull) {
+		short_rx = rx / 115292150460684697ull;
+		Rext = "EiB";
+	} else if (rx > 1125899906842624ull) {
 		short_rx /= 1125899906842624ull;
 	    Rext = "PiB";
 	} else if (rx > 1099511627776ull) {
@@ -887,10 +887,10 @@ void ife_print_long(struct interface *ptr)
 	}
 	tx = ptr->stats.tx_bytes;
 	short_tx = tx * 10;
-	if (tx > 1125899906842624ull) {
-	    if (tx > (9223372036854775807ull / 10))
-		short_tx = tx / 112589990684262ull;
-	    else
+	if (tx > 1152921504606846976ull) {
+		short_tx = tx / 115292150460684697ull;
+		Text = "EiB";
+	} else if (tx > 1125899906842624ull) {
 		short_tx /= 1125899906842624ull;
 	    Text = "PiB";
 	} else 	if (tx > 1099511627776ull) {

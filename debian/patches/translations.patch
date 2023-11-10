@@ -1065,7 +1065,7 @@ Description: Random changed found in diff.gz, synchronized the best I could
  " will not be shown, you would have to be root to see it all.)\n"
 @@ -780,198 +690,220 @@
  "(Es konnten nicht alle Prozesse identifiziert werden; Informationen über\n"
- "nicht-eigene Processe werden nicht angezeigt; Root kann sie anzeigen.)\n"
+ "nicht-eigene Prozesse werden nicht angezeigt; Root kann sie anzeigen.)\n"
  
 -#: ../netstat.c:394 ../netstat.c:1089 ../netstat.c:1166
 +#: ../netstat.c:445 ../netstat.c:1189 ../netstat.c:1266
@@ -3937,8 +3937,8 @@ Description: Random changed found in diff.gz, synchronized the best I could
 +
 +msgid "Routing table for `ddp' not yet supported.\n"
 +msgstr "DDP-Routentabelle wird noch nicht unterstützt.\n"
---- a/po/et_EE.po
-+++ b/po/et_EE.po
+--- a/po/et.po
++++ b/po/et.po
 @@ -1,65 +1,72 @@
  # Estonian translations for net-tools
 -# Copyright (C) 1999-2001 Free Software Foundation, Inc.

@@ -1,3 +1,9 @@
+net-tools (2.10-0.1pexip1) pexip-bookworm; urgency=medium
+
+  * Initial bookworm build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Thu, 16 Nov 2023 10:12:59 +0000
+
 net-tools (2.10-0.1) unstable; urgency=medium
 
   * Non-maintainer upload.

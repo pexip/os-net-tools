@@ -1,3 +1,16 @@
+net-tools (2.10-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Release to unstable. (Closes: #1059409)
+
+ -- Chris Hofstaedtler <zeha@debian.org>  Mon, 22 Apr 2024 01:55:29 +0200
+
+net-tools (2.10-1) experimental; urgency=medium
+
+  * Move to /usr-merge (DEP17).
+
+ -- Utkarsh Gupta <utkarsh@debian.org>  Thu, 23 Nov 2023 14:41:07 +0000
+
 net-tools (2.10-0.1) unstable; urgency=medium
 
   * Non-maintainer upload.

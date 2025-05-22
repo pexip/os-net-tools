@@ -1,0 +1,25 @@
+#!/bin/sh
+
+PATH="/usr/sbin:${PATH}"
+export PATH
+
+set -e
+
+# Confirm loopback is in the normal list
+if ! ( ifconfig | grep -q lo: ); then
+  echo "Failed to get lo from ifconfig"
+  exit 1
+fi
+
+# Confirm correctness of loopback device
+LO_OUTPUT=$(ifconfig lo)
+
+if ! ( echo "${LO_OUTPUT}" | grep -q lo: ); then
+  echo "Failed to get lo from ifconfig lo"
+  exit 1
+fi
+
+if ! ( echo "${LO_OUTPUT}" | grep -q "inet 127.0.0.1" ); then
+  echo "Failed to get IP of 127.0.0.1 from ifconfig lo"
+  exit 1
+fi

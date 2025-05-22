@@ -1,0 +1,48 @@
+#!/bin/sh
+
+set -e
+
+ORIGINAL_HOSTNAME=$(hostname)
+
+# Test hostname set using: hostname [newname]
+TEST_HOSTNAME="TestHostname"
+hostname "${TEST_HOSTNAME}"
+
+if [ "$(hostname)" != "${TEST_HOSTNAME}" ]; then
+  echo "Failed to set hostname to ${TEST_HOSTNAME} using hostname [newname]"
+  exit 1
+fi
+
+# Test hostname set using: hostname [-F filename | --file filename]
+TEST_HOSTNAME="testF"
+HOSTNAME_FILENAME="hostnamefile"
+
+touch "${HOSTNAME_FILENAME}"
+echo "${TEST_HOSTNAME}" > "${HOSTNAME_FILENAME}"
+hostname -F "${HOSTNAME_FILENAME}"
+rm "${HOSTNAME_FILENAME}"
+
+if [ "$(hostname)" != "${TEST_HOSTNAME}" ]; then
+  echo "Failed to set hostname to ${TEST_HOSTNAME} using hostname -F ${HOSTNAME_FILENAME}"
+  exit 1
+fi
+
+TEST_HOSTNAME="testfile"
+
+touch "${HOSTNAME_FILENAME}"
+echo "${TEST_HOSTNAME}" > "${HOSTNAME_FILENAME}"
+hostname --file "${HOSTNAME_FILENAME}"
+rm "${HOSTNAME_FILENAME}"
+
+if [ "$(hostname)" != "${TEST_HOSTNAME}" ]; then
+  echo "Failed to set hostname to ${TEST_HOSTNAME} using hostname --file ${HOSTNAME_FILENAME}"
+  exit 1
+fi
+
+# Return to original hostname
+hostname "${ORIGINAL_HOSTNAME}"
+
+if [ "$(hostname)" != "${ORIGINAL_HOSTNAME}" ]; then
+  echo "Failed to set hostname back to ${ORIGINAL_HOSTNAME}"
+  exit 1
+fi

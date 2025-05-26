@@ -1,3 +1,21 @@
+net-tools (2.10-0.1+deb12u2) bookworm-security; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * ipmaddr.c: Stack-based buffer Overflow in parse_hex()
+  * Fix interface statistic regression.
+    Thanks to Christian Herzog for the report (Closes: #1106147)
+  * proc.c: Stack-based Buffer Overflow in net-tools (proc_gen_fmt)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 26 May 2025 21:27:23 +0200
+
+net-tools (2.10-0.1+deb12u1) bookworm-security; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * CVE-2025-46836: interface.c: Stack-based Buffer Overflow in get_name()
+    (Closes: #1105806)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 15 May 2025 05:52:03 +0200
+
 net-tools (2.10-0.1) unstable; urgency=medium
 
   * Non-maintainer upload.

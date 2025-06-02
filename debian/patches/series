@@ -3,3 +3,7 @@ translations.patch
 Add_missing_headers.patch
 Bug_900962-man-de-typos.patch
 Bug_549397-fix-decoding-of-MII-vendor-ids.patch
+CVE-2025-46836-interface.c-Stack-based-Buffer-Overfl.patch
+ipmaddr.c-Stack-based-buffer-Overflow-in-parse_hex.patch
+Interface-statistic-regression-after-7a8f42fb2.patch
+proc.c-Stack-based-Buffer-Overflow-in-net-tools-proc.patch

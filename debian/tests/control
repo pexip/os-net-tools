@@ -1,0 +1,6 @@
+Tests: hostname-set-get
+Depends: net-tools
+Restrictions: needs-root, breaks-testbed
+
+Tests: ifconfig-lo-info
+Depends: net-tools
